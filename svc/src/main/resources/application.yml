@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    allen:
+      url: 	jdbc:mysql://192.168.100.40:3306/allen?zeroDateTimeBehavior=convertToNull&useSSL=false
+      name: java_team
+      password: java_team
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-test-query: select 1 from dual
+      pool-name: allen-mysql
+
+
