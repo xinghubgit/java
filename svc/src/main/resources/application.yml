@@ -1,7 +1,10 @@
+server:
+  port: 10086
+
 spring:
   datasource:
     allen:
-      url: 	jdbc:mysql://192.168.100.40:3306/allen?zeroDateTimeBehavior=convertToNull&useSSL=false
+      url: jdbc:mysql://192.168.100.40:3306/allen?zeroDateTimeBehavior=convertToNull&useSSL=false
       name: java_team
       password: java_team
     hikari:
@@ -9,5 +12,12 @@ spring:
       minimum-idle: 5
       connection-test-query: select 1 from dual
       pool-name: allen-mysql
-
+  redis:
+    lettuce:
+      pool:
+        max-active: 10
+        max-wait: 1000ms
+        min-idle: 5
+    cluster:
+      nodes: 192.168.250.203:6379,192.168.250.204:6379,192.168.250.205:6379,192.168.250.203:6380,192.168.250.204:6380,192.168.250.205:6380
 

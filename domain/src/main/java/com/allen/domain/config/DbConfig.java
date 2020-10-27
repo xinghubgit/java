@@ -1,4 +1,4 @@
-package com.allen.es.config;
+package com.allen.domain.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;

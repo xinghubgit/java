@@ -1,4 +1,4 @@
-package com.allen.es.config;
+package com.allen.domain.config;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -19,7 +19,7 @@ import javax.sql.DataSource;
 @MapperScan(basePackages = "com.allen.domain.dao")
 public class MybatisDbConfig {
 
-    @Resource
+    @Resource(name = "allenDs")
     private DataSource ds;
 
     @Bean
@@ -27,6 +27,7 @@ public class MybatisDbConfig {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(ds);
         bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResource("classpath:mapper/*.xml"));
+        bean.getObject().getConfiguration().setMapUnderscoreToCamelCase(true);
         return bean.getObject();
     }
 
