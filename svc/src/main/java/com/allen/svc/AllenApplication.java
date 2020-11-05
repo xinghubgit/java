@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
  */
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.allen.domain", "com.allen.svc", "com.allen.redis", "com.allen.es"})
+@ComponentScan(basePackages = {"com.allen.domain", "com.allen.svc"})
 public class AllenApplication {
     public static void main(String[] args) {
         SpringApplication.run(AllenApplication.class, args);

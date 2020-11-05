@@ -16,7 +16,7 @@ import javax.sql.DataSource;
  */
 
 @Configuration
-@MapperScan(basePackages = "com.allen.domain.dao")
+@MapperScan(basePackages = {"com.allen.domain.dao"})
 public class MybatisDbConfig {
 
     @Resource(name = "allenDs")
@@ -26,7 +26,9 @@ public class MybatisDbConfig {
     public SqlSessionFactory sqlSessionFactory() throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(ds);
-        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResource("classpath:mapper/*.xml"));
+        PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+        org.springframework.core.io.Resource[] resources = resolver.getResources("classpath:mapper/*.xml");
+        bean.setMapperLocations(resources);
         bean.getObject().getConfiguration().setMapUnderscoreToCamelCase(true);
         return bean.getObject();
     }

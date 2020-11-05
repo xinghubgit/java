@@ -50,9 +50,28 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
 
+        <!--elastic search-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>elasticsearch-rest-high-level-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.elasticsearch</groupId>
+            <artifactId>elasticsearch</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-pool2</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-neo4j</artifactId>
         </dependency>
 
         <!--lombok-->
@@ -75,6 +94,85 @@
         </dependency>
 
     </dependencies>
+
+    <!--<profiles>-->
+        <!--<profile>-->
+            <!--<id>db_oracle</id>-->
+            <!--<properties>-->
+                <!--<package.dbtype>oracle</package.dbtype>-->
+            <!--</properties>-->
+            <!--<activation>-->
+                <!--<property>-->
+                    <!--<name>dbType</name>-->
+                    <!--<value>oracle</value>-->
+                <!--</property>-->
+            <!--</activation>-->
+            <!--<dependencies>-->
+                <!--<dependency>-->
+                    <!--<groupId>com.oracle.ojdbc</groupId>-->
+                    <!--<artifactId>ojdbc8</artifactId>-->
+                    <!--<version>${oracle.ojdbc}</version>-->
+                    <!--<scope>runtime</scope>-->
+                <!--</dependency>-->
+                <!--<dependency>-->
+                    <!--<groupId>com.oracle.ojdbc</groupId>-->
+                    <!--<artifactId>orai18n</artifactId>-->
+                    <!--<version>${oracle.ojdbc}</version>-->
+                    <!--<scope>runtime</scope>-->
+                <!--</dependency>-->
+            <!--</dependencies>-->
+        <!--</profile>-->
+        <!--<profile>-->
+            <!--<id>db_mysql</id>-->
+            <!--<properties>-->
+                <!--<package.dbtype>mysql</package.dbtype>-->
+            <!--</properties>-->
+            <!--<activation>-->
+                <!--<activeByDefault>true</activeByDefault>-->
+                <!--<property>-->
+                    <!--<name>dbType</name>-->
+                    <!--<value>mysql</value>-->
+                <!--</property>-->
+            <!--</activation>-->
+            <!--<dependencies>-->
+                <!--<dependency>-->
+                    <!--<groupId>mysql</groupId>-->
+                    <!--<artifactId>mysql-connector-java</artifactId>-->
+                    <!--<scope>runtime</scope>-->
+                <!--</dependency>-->
+            <!--</dependencies>-->
+        <!--</profile>-->
+    <!--</profiles>-->
+    <!--<build>-->
+        <!--<resources>-->
+            <!--<resource>-->
+                <!--<directory>src/main/resources</directory>-->
+                <!--<excludes>-->
+                    <!--<exclude>mapper/**</exclude>-->
+                <!--</excludes>-->
+                <!--<filtering>true</filtering>-->
+            <!--</resource>-->
+            <!--<resource>-->
+                <!--<directory>src/main/resources/mapper/${package.dbtype}</directory>-->
+                <!--<targetPath>mapper/</targetPath>-->
+                <!--<filtering>true</filtering>-->
+            <!--</resource>-->
+        <!--</resources>-->
+        <!--<plugins>-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-jar-plugin</artifactId>-->
+                <!--<version>3.1.2</version>-->
+                <!--<configuration>-->
+                    <!--<excludes>-->
+                        <!--<exclude>application*.properties</exclude>-->
+                        <!--<exclude>logback-spring.xml</exclude>-->
+                        <!--<exclude>CacheKeys*.xml</exclude>-->
+                    <!--</excludes>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
+    <!--</build>-->
 
 
 </project>

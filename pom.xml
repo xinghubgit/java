@@ -28,6 +28,7 @@
         <mybatis.version>2.1.0</mybatis.version>
         <mybatis.pagehelper.version>1.2.3</mybatis.pagehelper.version>
         <commons.version>4.1</commons.version>
+        <elasticsearch.version>6.5.4</elasticsearch.version>
     </properties>
 
     <dependencyManagement>
@@ -94,6 +95,23 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-data-redis</artifactId>
                 <version>${springboot.version}</version>
+            </dependency>
+
+            <!--elastic search-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.elasticsearch.client</groupId>
+                <artifactId>elasticsearch-rest-high-level-client</artifactId>
+                <version>${elasticsearch.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.elasticsearch</groupId>
+                <artifactId>elasticsearch</artifactId>
+                <version>${elasticsearch.version}</version>
             </dependency>
 
             <!--apache-->
