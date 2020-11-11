@@ -27,8 +27,8 @@ public class MybatisDbConfig {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(ds);
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        org.springframework.core.io.Resource[] resources = resolver.getResources("classpath:mapper/*.xml");
-        bean.setMapperLocations(resources);
+//        org.springframework.core.io.Resource[] resources = resolver.getResources("classpath:mapper/*.xml");
+//        bean.setMapperLocations(resources);
         bean.getObject().getConfiguration().setMapUnderscoreToCamelCase(true);
         return bean.getObject();
     }

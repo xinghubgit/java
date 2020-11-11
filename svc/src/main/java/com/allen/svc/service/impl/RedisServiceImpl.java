@@ -26,14 +26,11 @@ public class RedisServiceImpl implements RedisService {
     @Override
     public String testRedis() {
         List<RedisClientInfo> clientList = redisTemplate.getClientList();
-//        for (RedisClientInfo clientInfo : clientList) {
-//            log.info("Port: {} Idle: {}", clientInfo.getAddressPort(), clientInfo.getIdle());
-//        }
-
         redisTemplate.setKeySerializer(new StringRedisSerializer());
+
         ClusterOperations clusterOperations = redisTemplate.opsForCluster();
         ValueOperations operations = redisTemplate.opsForValue();
-        operations.set("allen-test", "HelloWorld");
+        operations.setIfPresent("allen-test", "HelloWorld");
         return (String)operations.get("allen-test");
     }
 }

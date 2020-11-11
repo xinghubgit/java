@@ -1,12 +1,18 @@
 server:
   port: 10086
+  tomcat:
+    max-connections: 8192
+    accept-count: 50
+    max-threads: 50
+    accesslog:
+      enabled: true
 
 spring:
   datasource:
     allen:
-      url: jdbc:mysql://192.168.100.40:3306/allen?zeroDateTimeBehavior=convertToNull&useSSL=false
-      name: java_team
-      password: java_team
+      jdbcurl: jdbc:mysql://192.168.250.200:3306/news?useTimezone=true&serverTimezone=GMT%2B8
+      username: news_user
+      password: chinascope1234
     hikari:
       maximum-pool-size: 10
       minimum-idle: 5
@@ -16,7 +22,7 @@ spring:
     lettuce:
       pool:
         max-active: 10
-        max-wait: 1000ms
+        max-wait: 10000ms
         min-idle: 5
     cluster:
       nodes: 192.168.250.203:6379,192.168.250.204:6379,192.168.250.205:6379,192.168.250.203:6380,192.168.250.204:6380,192.168.250.205:6380
@@ -24,3 +30,5 @@ spring:
     rest:
       uris: ["http://192.168.250.213:9200", "http://192.168.250.216:9200", "http://192.168.250.210:9200"]
 
+
+#debug: true

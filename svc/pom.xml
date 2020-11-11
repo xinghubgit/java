@@ -17,6 +17,10 @@
             <groupId>com.allen.java</groupId>
             <artifactId>domain</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.allen.java</groupId>
+            <artifactId>common</artifactId>
+        </dependency>
 
         <!--spring-->
         <dependency>
@@ -91,6 +95,11 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
     </dependencies>
