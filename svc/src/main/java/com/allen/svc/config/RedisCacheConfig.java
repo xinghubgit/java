@@ -1,8 +1,6 @@
 package com.allen.svc.config;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.Bean;
@@ -20,7 +18,6 @@ import java.lang.reflect.Method;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Set;
 
 /**
  * @date 2020/11/10
@@ -40,7 +37,6 @@ public class RedisCacheConfig {
     @Bean
     public RedisCacheConfiguration redisCacheConfiguration(Jackson2JsonRedisSerializer jsonRedisSerializer) {
         return RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofHours(ttl))
-//                .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(jsonRedisSerializer))
                 .serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(new StringRedisSerializer()))
                 .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(new StringRedisSerializer()))
                 .prefixKeysWith(keyPrefix);

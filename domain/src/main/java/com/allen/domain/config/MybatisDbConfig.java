@@ -7,6 +7,9 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
@@ -16,6 +19,7 @@ import javax.sql.DataSource;
  */
 
 @Configuration
+//@EnableTransactionManagement
 @MapperScan(basePackages = {"com.allen.domain.dao"})
 public class MybatisDbConfig {
 
@@ -27,8 +31,8 @@ public class MybatisDbConfig {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(ds);
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-//        org.springframework.core.io.Resource[] resources = resolver.getResources("classpath:mapper/*.xml");
-//        bean.setMapperLocations(resources);
+        org.springframework.core.io.Resource[] resources = resolver.getResources("classpath:mapper/*.xml");
+        bean.setMapperLocations(resources);
         bean.getObject().getConfiguration().setMapUnderscoreToCamelCase(true);
         return bean.getObject();
     }
@@ -37,5 +41,12 @@ public class MybatisDbConfig {
     public SqlSessionTemplate sqlSessionTemplate() throws Exception {
         return new SqlSessionTemplate(sqlSessionFactory());
     }
+
+    @Bean
+    public PlatformTransactionManager platformTransactionManager() {
+        return new DataSourceTransactionManager(ds);
+    }
+
+
 
 }

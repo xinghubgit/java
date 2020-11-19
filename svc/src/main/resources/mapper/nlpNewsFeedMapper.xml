@@ -8,5 +8,15 @@
         limit 10
     </select>
 
+    <delete id="deleteFeedById" parameterType="java.lang.Long">
+        delete from nlp_news_feed
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteContentById" parameterType="java.lang.Long">
+        delete from nlp_news_content
+        where oid = #{id}
+    </delete>
+
 </mapper>
 

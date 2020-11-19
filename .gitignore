@@ -12,6 +12,7 @@ log_dir_IS_UNDEFINED/
 .settings
 .springBeans
 .sts4-cache
+.extract
 
 ### IntelliJ IDEA ###
 .idea
@@ -25,3 +26,5 @@ log_dir_IS_UNDEFINED/
 /nbbuild/
 /nbdist/
 /.nb-gradle/
+
+

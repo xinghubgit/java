@@ -16,6 +16,7 @@
         <module>domain</module>
         <module>common</module>
         <module>dist</module>
+        <module>web-mvc</module>
     </modules>
 
     <properties>
@@ -25,6 +26,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <springboot.version>2.2.9.RELEASE</springboot.version>
+        <spring.version>5.2.8.RELEASE</spring.version>
         <mybatis.version>2.1.0</mybatis.version>
         <mybatis.pagehelper.version>1.2.3</mybatis.pagehelper.version>
         <commons.version>4.1</commons.version>

@@ -11,4 +11,6 @@ public interface MybatisService {
     String testMybatis();
 
     String evictCache();
+
+    Integer delFeedAndContent(Long id);
 }
