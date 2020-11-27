@@ -55,6 +55,7 @@ java_opts=${java_opts}" -Dserver.port=${port}"
 java_opts=${java_opts}" -Dlog_dir=$logpath"
 java_opts=${java_opts}" -DenableAuth=$enableAuth"
 java_opts=${java_opts}" -Dapollo.cluster=$clusterName"
+java_opts=${java_opts}" -Xloggc:/app/svc/logs/gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintGCApplicationStoppedTime -XX:+PrintPromotionFailure -XX:+PrintTenuringDistribution -XX:+HeapDumpOnOutOfMemoryError"
 
 # echo java_opts:${java_opts}
 

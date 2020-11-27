@@ -24,7 +24,7 @@ spring:
         max-active: 10
         max-wait: 10000ms
         min-idle: 5
-    cluster:
+    cluster:   #cluster info
       nodes: 192.168.250.203:6379,192.168.250.204:6379,192.168.250.205:6379,192.168.250.203:6380,192.168.250.204:6380,192.168.250.205:6380
   elasticsearch:
     rest:

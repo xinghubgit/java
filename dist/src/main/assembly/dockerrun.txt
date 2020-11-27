@@ -1,0 +1,9 @@
+
+ -e JAVA_TOOL_OPTIONS="-Djava.rmi.server.hostname=0.0.0.0 -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=5000 -Dcom.sun.management.jmxremote.rmi.port=5000 -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -XX:NativeMemoryTracking=summary"
+
+docker run --name kg-query-svc-2 -d --restart=always -p 30040:8080 \
+-p 5000:5000 -e JAVA_TOOL_OPTIONS="-Djava.rmi.server.hostname=0.0.0.0 -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=5000 -Dcom.sun.management.jmxremote.rmi.port=5000 -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -XX:NativeMemoryTracking=summary" \
+-v /app/docker/logs/kg-query-svc/logs:/app/svc/logs  \
+192.168.250.121:6000/csf/svc/kg-query-svc:v1.0.8-SNAPSHOT -e qa -l /app/svc/logs
+
+
