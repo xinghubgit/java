@@ -1,14 +1,15 @@
 package com.allen.svc.service.impl;
 
 import com.allen.domain.dao.NlpNewsFeedMapper;
+import com.allen.domain.entity.NewsFeed;
 import com.allen.svc.service.MybatisService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -23,7 +24,7 @@ public class MybatisServiceImpl implements MybatisService {
     private NlpNewsFeedMapper nlpNewsFeedMapper;
 
     @Override
-    @Cacheable(cacheNames = "mybatis2", keyGenerator = "riskKeyGenerator")
+//    @Cacheable(cacheNames = "mybatis2", keyGenerator = "riskKeyGenerator")
     public String testMybatis() {
         log.info("Get Data From Mapper");
         List<Long> csfIds = nlpNewsFeedMapper.getIds();
@@ -44,5 +45,10 @@ public class MybatisServiceImpl implements MybatisService {
 //        Integer eventNum = nlpNewsFeedMapper.deleteEventById(id);
 
         return feedNum + contentNum;
+    }
+
+    @Override
+    public List<NewsFeed> getNewsByDate(LocalDate date) {
+        return nlpNewsFeedMapper.getNewsByDate(String.valueOf(date));
     }
 }

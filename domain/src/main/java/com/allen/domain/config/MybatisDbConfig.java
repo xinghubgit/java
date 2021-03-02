@@ -19,7 +19,6 @@ import javax.sql.DataSource;
  */
 
 @Configuration
-//@EnableTransactionManagement
 @MapperScan(basePackages = {"com.allen.domain.dao"})
 public class MybatisDbConfig {
 
@@ -46,7 +45,5 @@ public class MybatisDbConfig {
     public PlatformTransactionManager platformTransactionManager() {
         return new DataSourceTransactionManager(ds);
     }
-
-
 
 }

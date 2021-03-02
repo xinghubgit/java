@@ -18,5 +18,12 @@
         where oid = #{id}
     </delete>
 
+    <select id="getNewsByDate" resultType="com.allen.domain.entity.NewsFeed" parameterType="java.lang.String">
+        select title, siteid as siteId, auth
+        from  nlp_news_feed
+        where dt > #{date}
+        limit 3
+    </select>
+
 </mapper>
 

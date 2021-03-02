@@ -12,7 +12,7 @@ import org.springframework.web.servlet.view.JstlView;
  */
 
 @Configuration
-@EnableWebMvc
+//@EnableWebMvc
 public class MvcConfig {
 
 

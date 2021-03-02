@@ -1,6 +1,9 @@
 package com.allen.svc.service;
 
-import org.springframework.cache.annotation.CacheEvict;
+import com.allen.domain.entity.NewsFeed;
+
+import java.time.LocalDate;
+import java.util.List;
 
 /**
  * @author allen.jin
@@ -13,4 +16,6 @@ public interface MybatisService {
     String evictCache();
 
     Integer delFeedAndContent(Long id);
+
+    List<NewsFeed> getNewsByDate(LocalDate date);
 }

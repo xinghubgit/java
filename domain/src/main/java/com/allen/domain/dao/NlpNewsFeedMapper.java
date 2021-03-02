@@ -1,8 +1,10 @@
 package com.allen.domain.dao;
 
+import com.allen.domain.entity.NewsFeed;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -21,4 +23,6 @@ public interface NlpNewsFeedMapper {
     Integer deleteContentById(Long id);
 
     Integer deleteEventById(Long id);
+
+    List<NewsFeed> getNewsByDate(String date);
 }

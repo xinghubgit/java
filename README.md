@@ -16,3 +16,22 @@ Hello Beauty
 2.构造方法的传递
 3.setter方法的传递
 
+
+238-274
+37-78
+
+
+
+装饰者模式
+外观模式
+
+
+Invoker?
+
+
+
+
+Interceptor与Filter的区别
+
+
+

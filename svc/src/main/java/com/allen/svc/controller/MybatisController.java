@@ -1,13 +1,13 @@
 package com.allen.svc.controller;
 
+import com.allen.svc.config.LocalDateEditor;
 import com.allen.svc.service.MybatisService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.time.LocalDate;
 
 /**
  * @date 2020/10/27
@@ -35,4 +35,13 @@ public class MybatisController {
         return ResponseEntity.ok(mybatisService.delFeedAndContent(id));
     }
 
+    @GetMapping("/news")
+    public ResponseEntity getNewsByDate(@RequestParam LocalDate date) {
+        return ResponseEntity.ok(mybatisService.getNewsByDate(date));
+    }
+
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        binder.registerCustomEditor(LocalDate.class, new LocalDateEditor());
+    }
 }
